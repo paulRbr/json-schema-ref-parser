@@ -66,6 +66,16 @@ describe("$Refs object", () => {
         expect(paths).to.be.an("array").with.lengthOf(0);
       }
     });
+
+    it("should be able to return encoded file paths if needed", async () => {
+      let parser = new $RefParser();
+      await parser.parse(path.abs("specs/__({[ % & $ # @ ` ~ ,)}]__/__({[ % & $ # @ ` ~ ,)}]__.yaml"));
+      let paths = parser.$refs.paths([], true);
+      expect(paths).to.have.same.members([
+        path.abs("specs/__({[ % & $ # @ ` ~ ,)}]__/__({[ % & $ # @ ` ~ ,)}]__.yaml")
+      ]);
+    });
+
   });
 
   describe("values", () => {

@@ -33,10 +33,13 @@ if (parser.$refs.circular) {
 ```
 
 
-### `paths([types])`
+### `paths([types], [encoded])`
 
 - **types** (_optional_) - `string` (one or more)<br>
 Optionally only return certain types of paths ("file", "http", etc.)
+
+- **encoded** (_optional_) - `boolean`<br>
+Optionally return the JSON reference encoded paths. This is mostly useful if you want to feed in the returned values in the other `$refs` functions.
 
 - **Return Value:** `array` of `string`<br>
 Returns the paths/URLs of all the files in your schema (including the main schema file).
